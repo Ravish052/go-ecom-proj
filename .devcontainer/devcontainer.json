@@ -1,0 +1,19 @@
+{
+  "name": "Go Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.Go"
+      ]
+    }
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "go version && go install github.com/sqlc-dev/sqlc/cmd/sqlc@vlatest && go install github.com/pressly/goose/v3/cmd/goose@latest " ,
+  "containerEnv": {
+  "GOOSE_MIGRATION_DIR": "internal/adapters/postgres/migrations"
+}
+
+}
